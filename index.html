@@ -228,6 +228,7 @@
 }
 </script>
 <script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <div id="__loader">جارٍ تحميل النظام...</div>
@@ -272,7 +273,11 @@ import {
 } from "lucide-react";
 
 // ==================== SUPABASE CONFIG ====================
-const supabase = (window).__supabase;
+const { createClient } = window.supabase;
+const supabase = createClient(
+  "https://thlkjtgywdokfhghsgln.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRobGtqdGd5d2Rva2ZoZ2hzZ2xuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NjIxNDksImV4cCI6MjA5ODMzODE0OX0._l45PVFOD7hT7cgpO63Z4PFHOjQ66Dzwtedr-yz2AN4"
+);
 
 // ==================== EMAILJS CONFIG ====================
 const EMAILJS_SERVICE_ID  = process.env.REACT_APP_EMAILJS_SERVICE_ID  || "service_1fmr5dt";
